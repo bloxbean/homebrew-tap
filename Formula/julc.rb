@@ -1,20 +1,20 @@
 class Julc < Formula
   desc "JuLC Cardano smart contract toolkit"
   homepage "https://github.com/bloxbean/julc"
-  version "0.1.0-pre11"
+  version "0.1.0-pre12"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/bloxbean/julc/releases/download/v0.1.0-pre11/julc-0.1.0-pre11-macos-aarch64.zip"
-      sha256 "c221715bf58f04ee35ccdb56554d898dde9d16e34c070f96f3d77f8c81103021"
+      url "https://github.com/bloxbean/julc/releases/download/v0.1.0-pre12/julc-0.1.0-pre12-macos-aarch64.zip"
+      sha256 "24ed1638cfcb59ba952e1628081ec7e7c19f7b05530708e4bf48cfb50b5c73a1"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bloxbean/julc/releases/download/v0.1.0-pre11/julc-0.1.0-pre11-linux-x86_64.zip"
-      sha256 "d4614e5bd3fe6a202bd840745a5792f07079f64fcc442f9408813eeef78495a5"
+      url "https://github.com/bloxbean/julc/releases/download/v0.1.0-pre12/julc-0.1.0-pre12-linux-x86_64.zip"
+      sha256 "05007dd84c43ab29fd7c61f9582ab3d82f7e0fe90413b18daca0ef20afcafeff"
     end
   end
 
