@@ -1,23 +1,23 @@
 class JulcPlayground < Formula
   desc "JuLC Playground - Web-based JRL editor and compiler"
   homepage "https://github.com/bloxbean/julc"
-  version "0.1.0-pre13"
+  version "0.1.0-pre14"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/bloxbean/julc/releases/download/v0.1.0-pre13/julc-playground-0.1.0-pre13-macos-aarch64.zip"
-      sha256 "16cee1d0b0d1581d16808a477b406058c1073e6ee11545b63ba5d60b744d2d01"
+      url "https://github.com/bloxbean/julc/releases/download/v0.1.0-pre14/julc-playground-0.1.0-pre14-macos-aarch64.zip"
+      sha256 "4c91449f902c0314b26da893b8f3b6d248ed556b4e10d19e90bcb02cdc8630db"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bloxbean/julc/releases/download/v0.1.0-pre13/julc-playground-0.1.0-pre13-linux-x86_64.zip"
-      sha256 "23f26926d007d70335fa739c28f122945aaf9bca5c48a10b31874a6d5f238a8a"
+      url "https://github.com/bloxbean/julc/releases/download/v0.1.0-pre14/julc-playground-0.1.0-pre14-linux-x86_64.zip"
+      sha256 "c6ad3ebe63c676443cfe1f99ac29cb9a5ed1b8adc80ff41580a93cc443165a86"
     elsif Hardware::CPU.arm?
-      url "https://github.com/bloxbean/julc/releases/download/v0.1.0-pre13/julc-playground-0.1.0-pre13-linux-arm64.zip"
-      sha256 "3e76b23dee8f97075d5e1719aeef4d1165e9d8bc79c36148c3e033c6123c8ddd"
+      url "https://github.com/bloxbean/julc/releases/download/v0.1.0-pre14/julc-playground-0.1.0-pre14-linux-arm64.zip"
+      sha256 "557a6b569b7a36aadae4c0f013df08e37abaa26caae4e43707542d5208784581"
     end
   end
 
