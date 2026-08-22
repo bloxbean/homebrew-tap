@@ -1,6 +1,6 @@
 cask "yano-wallet" do
-  version "0.1.0-pre4"
-  sha256 "c63fb60a4cefe061f5c2a17034c3f0697bc11fa195153545faf0ee57b25ec703"
+  version "0.1.0-pre5"
+  sha256 "3060aa233c44c27b6dd925a1e7da5ef926972293d131b31c3884f2e4bc1c7cae"
 
   url "https://github.com/bloxbean/yano-wallet/releases/download/v#{version}/yano-wallet-native-macos_arm64_#{version}.zip"
   name "Yano Wallet"
@@ -18,6 +18,13 @@ cask "yano-wallet" do
   caveats <<~EOS
     Start the wallet with:
       yano-wallet
+
+    Installed WITHOUT --no-quarantine? macOS will refuse to run it
+    ("Apple could not verify..."). Clear it once, no re-download:
+      xattr -dr com.apple.quarantine "$(brew --prefix)/Caskroom/yano-wallet"
+
+    Point it at the FOLDER, not the binary: the bundled Yano node is a
+    second executable and prompts separately. -r covers both.
 
     The managed node downloads and validates the chain on first run,
     which takes hours and tens of GB under ~/.yano-wallet/.
