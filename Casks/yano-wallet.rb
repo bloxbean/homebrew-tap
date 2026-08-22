@@ -15,16 +15,32 @@ cask "yano-wallet" do
   # so linking it into the PATH works.
   binary "yano-wallet-native-#{version}/run.sh", target: "yano-wallet"
 
+  # Homebrew APPLIES com.apple.quarantine, on upgrades as well as
+  # installs, and these builds are not signed or notarised — so macOS
+  # refuses to run them until someone clears it. --no-quarantine works
+  # but has to be repeated on every , and a bare
+  #  takes no cask flags at all, so it silently comes back.
+  #
+  # Clearing it here instead: the whole staged folder, because the
+  # bundled Yano node is a second executable that prompts separately.
+  #
+  # This does strip a security check without the user asking. It is a
+  # deliberate trade for software the tap owner builds and publishes;
+  # signing and notarising is what makes it unnecessary.
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-dr", "com.apple.quarantine", staged_path],
+                   must_succeed: false
+  end
+
   caveats <<~EOS
     Start the wallet with:
       yano-wallet
 
-    Installed WITHOUT --no-quarantine? macOS will refuse to run it
-    ("Apple could not verify..."). Clear it once, no re-download:
+    These builds are not signed or notarised yet, so the cask clears
+    macOS's quarantine flag for you on install and upgrade. If macOS
+    still refuses to run it:
       xattr -dr com.apple.quarantine "$(brew --prefix)/Caskroom/yano-wallet"
-
-    Point it at the FOLDER, not the binary: the bundled Yano node is a
-    second executable and prompts separately. -r covers both.
 
     The managed node downloads and validates the chain on first run,
     which takes hours and tens of GB under ~/.yano-wallet/.
