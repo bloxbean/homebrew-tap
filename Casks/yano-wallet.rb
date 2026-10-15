@@ -1,6 +1,6 @@
 cask "yano-wallet" do
-  version "0.1.0-pre5"
-  sha256 "3060aa233c44c27b6dd925a1e7da5ef926972293d131b31c3884f2e4bc1c7cae"
+  version "0.1.0-pre6"
+  sha256 "23a8cf59b017e32de18582e1290663f3b8183a6eb68cd0166fe2d33477974f3c"
 
   url "https://github.com/bloxbean/yano-wallet/releases/download/v#{version}/yano-wallet-native-macos_arm64_#{version}.zip"
   name "Yano Wallet"
