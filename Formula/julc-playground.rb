@@ -1,23 +1,23 @@
 class JulcPlayground < Formula
-  desc "JuLC Playground - Web-based JRL editor and compiler"
+  desc "JuLC Playground - Web-based JuLC editor and compiler"
   homepage "https://github.com/bloxbean/julc"
-  version "0.1.0-pre20"
+  version "0.1.0-pre21"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/bloxbean/julc/releases/download/v0.1.0-pre20/julc-playground-0.1.0-pre20-macos-aarch64.zip"
-      sha256 "849433b2509a28e83f01aa84d95af23d6b136c3d56fbe54671b6e23e02f813a3"
+      url "https://github.com/bloxbean/julc/releases/download/v0.1.0-pre21/julc-playground-0.1.0-pre21-macos-aarch64.zip"
+      sha256 "0539df0a7923dfa8768a0145bc228401409c7825325aba180d64a77a2a68e60e"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bloxbean/julc/releases/download/v0.1.0-pre20/julc-playground-0.1.0-pre20-linux-x86_64.zip"
-      sha256 "18e35eb0475188d34ce8974bb39f4f79eb91961dcfa3d9e3c0db8e28c0de0378"
+      url "https://github.com/bloxbean/julc/releases/download/v0.1.0-pre21/julc-playground-0.1.0-pre21-linux-x86_64.zip"
+      sha256 "fb304ecdd6740fbaf0e2a4c9a920354b976bd4e903098c0e157fa4c2c7462edc"
     elsif Hardware::CPU.arm?
-      url "https://github.com/bloxbean/julc/releases/download/v0.1.0-pre20/julc-playground-0.1.0-pre20-linux-arm64.zip"
-      sha256 "a5e43be7432cda24fd7a082639e22739edd3206d974416644324aee070a89421"
+      url "https://github.com/bloxbean/julc/releases/download/v0.1.0-pre21/julc-playground-0.1.0-pre21-linux-arm64.zip"
+      sha256 "5e8114fb64f589b5f91454b6d75d092d0ac1f9d886ffd260d2425870b1925a05"
     end
   end
 
@@ -29,7 +29,7 @@ class JulcPlayground < Formula
     # Start server in background, check health endpoint, then stop
     port = free_port
     pid = fork do
-      ENV["JRL_PLAYGROUND_PORT"] = port.to_s
+      ENV["JULC_PLAYGROUND_PORT"] = port.to_s
       exec bin/"julc-playground"
     end
     sleep 3
